@@ -1,0 +1,480 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.loading {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.loadingContainer__heading {
+  width: 100%;
+}
+
+.loadingContainer__heading--text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.loadingContainer__heading--text h1 {
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+.loadingContainer__heading--text h1 .dot {
+  background-color: #7c70d2;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.loadingContainer__heading--text h1.message--text {
+  position: absolute;
+}
+
+.loadingContainer__heading--text h1 div.message h1 {
+  transform: translateY(100%);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+}
+
+.loader__container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 100vh;
+  canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// Showreel Styles
+.bannerContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  .buttonContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    .buttonContainer__showreel {
+      width: 350px;
+      height: 350px;
+      background-color: #7c70d2;
+      border-radius: 50%;
+    }
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+  }
+}
+
+.banner_container {
+  h1 {
+    font-size: 6rem;
+    line-height: 1;
+  }
+}
+
+.loading-slideshow {
+  aspect-ratio: 16/9;
+  width: 40rem;
+  position: absolute;
+}
+
+.banner-slideshow {
+  aspect-ratio: 16/9;
+  width: 40rem;
+  // position: absolute;
+}
+
+
+// Project grid Section
+.project__grid {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 2rem;
+
+    .grid {
+      width: 92%;
+      margin: 2rem auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2rem;
+      pointer-events: none;
+
+      .grid__item {
+        position: relative;
+        margin: 0;
+        will-change: transform;
+        pointer-events: auto;
+
+        .grid__item-img {
+          width: 100%;
+          aspect-ratio: 2/1.25;
+          background-size: cover;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 53em) {
+    .grid {
+      width: 92%;
+      grid-template-columns: repeat(13, 1fr);
+    }
+
+    .grid--medium {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+}
+
+// Service Section
+.services__container {
+  margin: 0;
+  --color-text: #111;
+  --color-bg: #ffffff;
+  --color-link: #000;
+  --color-link-hover: #000;
+  --color-border: #a7927b;
+  --marquee-bg: #000;
+  --marquee-text: #fff;
+  --menu-focus: #775e41;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-family: reason-new, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  a {
+    text-decoration: underline;
+    outline: none;
+    color: #fff;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+    outline: none;
+    text-decoration: none;
+  }
+
+  /* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+  a:focus {
+    /* Provide a fallback style for browsers
+     that don't support :focus-visible */
+    outline: none;
+    background: lightgrey;
+  }
+
+  a:focus:not(:focus-visible) {
+    /* Remove the focus indicator on mouse-focus for browsers
+     that do support :focus-visible */
+    background: transparent;
+  }
+
+  a:focus-visible {
+    /* Draw a very noticeable focus style for
+     keyboard-focus on browsers that do support
+     :focus-visible */
+    outline: 2px solid red;
+    background: transparent;
+  }
+
+  .unbutton {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+  }
+
+  .unbutton:focus {
+    outline: none;
+  }
+  .menu-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: calc(100vh - 13rem);
+    position: relative;
+    justify-content: center;
+  }
+
+  .menu__item {
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 -1px var(--color-border);
+  }
+
+  .menu__item:last-child {
+    box-shadow: 0 1px var(--color-border), 0 -1px var(--color-border);
+  }
+
+  .menu__item-link {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .menu__item-link:focus,
+  .menu__item-link:focus-visible {
+    color: var(--menu-focus);
+  }
+
+  .menu__item-link:focus:not(:focus-visible) {
+    color: var(--color-link);
+  }
+
+  .marquee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: var(--marquee-bg);
+    transform: translate3d(0, 101%, 0);
+  }
+
+  .marquee__inner-wrap {
+    height: 100%;
+    width: 100%;
+    transform: translate3d(0, -101%, 0);
+  }
+
+  .marquee__inner {
+    height: 100%;
+    width: fit-content;
+    width: -moz-fit-content;
+    align-items: center;
+    display: flex;
+    position: relative;
+    animation: marquee 15s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes marquee {
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .menu__item-link,
+  .marquee span {
+    white-space: nowrap;
+    font-size: 6vw;
+    line-height: 1.2;
+    font-weight: 600;
+    padding: 1vh 1vw 0;
+    text-transform: uppercase;
+  }
+
+  .marquee span {
+    text-align: center;
+    color: var(--marquee-text);
+    font-weight: 400;
+  }
+
+  .marquee__img {
+    width: 15vw;
+    height: 70%;
+    margin: 0 2vw;
+    border-radius: 5vw;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  @media screen and (min-width: 53em) {
+    .frame {
+      position: fixed;
+      text-align: left;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      display: grid;
+      align-content: space-between;
+      width: 100%;
+      max-width: none;
+      height: 100vh;
+      padding: 1.5rem 2rem 1rem;
+      pointer-events: none;
+      grid-template-columns: 25% 50% 25%;
+      grid-template-rows: auto auto auto;
+      grid-template-areas:
+        "logo credits links"
+        "... ... ..."
+        "... ... author";
+    }
+    .frame__logo {
+      grid-area: logo;
+      margin: 0;
+    }
+    .frame__credits {
+      grid-area: credits;
+      justify-self: center;
+    }
+    .frame__author {
+      grid-area: author;
+      justify-self: end;
+    }
+    .frame__links {
+      grid-area: links;
+      padding: 0;
+      justify-self: end;
+      text-align: right;
+    }
+    .frame a {
+      pointer-events: auto;
+    }
+    .menu-wrap {
+      height: 100vh;
+    }
+  }
+}
+
+// clients section
+.client__container {
+  --button-border-radius: 50%;
+  --button-bg: transparent;
+  --button-stroke: #ce1352;
+  --button-stroke-width: 1px;
+  --button-text: #000;
+  --button-bg-hover: transparent;
+  --button-stroke-hover: #ce1352;
+  --button-stroke-width-hover: 1px;
+  --button-text-hover: #ffffff;
+  --cursor-stroke: #fff;
+  --cursor-fill: #fff;
+  --cursor-stroke-width: 1px;
+  --color-text: #ffffff;
+  --color-bg: #312b35;
+  --color-link: #89639e;
+  --color-link-hover: #ce1352;
+  --button-filler: #ce1352;
+  position: relative;
+  background-color: #111;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  .button {
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    color: var(--button-text);
+    border: 0;
+    background: none;
+    width: 10rem;
+    height: 10rem;
+    padding: 0;
+    margin: 1rem;
+    font-family: inherit;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .button:focus,
+  .button--hover {
+    outline: none;
+    border-width: var(--button-stroke-width-hover);
+    border-color: var(--button-stroke-hover);
+    color: var(--button-text-hover);
+    background: var(--button-bg-hover);
+  }
+
+  .button__deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-width: var(--button-stroke-width);
+    border-color: var(--button-stroke);
+    border-style: solid;
+    border-radius: var(--button-border-radius);
+    background: var(--button-bg);
+  }
+
+  .button__deco-filler {
+    background: var(--button-filler);
+    position: absolute;
+    width: 150%;
+    height: 200%;
+    border-radius: 50%;
+    top: -50%;
+    left: -25%;
+    transform: translate3d(0, 75%, 0);
+  }
+
+  .button__text,
+  .button__text-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    min-width: 25%;
+  }
+}
+
+// Footer Section
